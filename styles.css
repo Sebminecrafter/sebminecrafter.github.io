@@ -2,45 +2,45 @@
 /* M PLUS 1 CODE */
 @font-face {
   font-family: mp1c;
-  src: url(fonts/m_plus_1_code/m_plus_1_code/static/mplus1code-regular.ttf);
+  src: url(/fonts/m_plus_1_code/m_plus_1_code/static/mplus1code-regular.ttf);
   font-weight: normal;
 }
 @font-face {
   font-family: mp1c;
-  src: url(fonts/m_plus_1_code/m_plus_1_code/static/mplus1code-bold.ttf);
+  src: url(/fonts/m_plus_1_code/m_plus_1_code/static/mplus1code-bold.ttf);
   font-weight: bold;
 }
 /* Share Tech*/
 @font-face {
   font-family: share-tech;
-  src: url(fonts/share_tech/sharetech-regular.ttf);
+  src: url(/fonts/share_tech/sharetech-regular.ttf);
 }
 @font-face {
   font-family: share-tech-mono;
-  src: url(fonts/share_tech_mono/sharetechmono-regular.ttf);
+  src: url(/fonts/share_tech_mono/sharetechmono-regular.ttf);
 }
 /* Ubuntu */
 @font-face {
   font-family: ubuntu;
-  src: url(fonts/ubuntu/ubuntu-regular.ttf);
+  src: url(/fonts/ubuntu/ubuntu-regular.ttf);
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: ubuntu;
-  src: url(fonts/ubuntu/ubuntu-italic.ttf);
+  src: url(/fonts/ubuntu/ubuntu-italic.ttf);
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
   font-family: ubuntu;
-  src: url(fonts/ubuntu/ubuntu-bolditalic.ttf);
+  src: url(/fonts/ubuntu/ubuntu-bolditalic.ttf);
   font-weight: bold;
   font-style: italic;
 }
 @font-face {
   font-family: ubuntu;
-  src: url(fonts/ubuntu/ubuntu-bold.ttf);
+  src: url(/fonts/ubuntu/ubuntu-bold.ttf);
   font-weight: bold;
   font-style: normal;
 }
@@ -52,5 +52,5 @@ body {
   font-family: share-tech-mono, monospace;
 }
 h1 {
-  font-family: ubuntu !important;
+  font-family: ubuntu, sans-serif !important;
 }
