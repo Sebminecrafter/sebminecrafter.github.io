@@ -2,33 +2,33 @@
 /* M PLUS 1 CODE */
 @font-face {
   font-family: mp1c;
-  src: url(/mp1c-regular.ttf);
+  src: url(/fonts/M_PLUS_1_Code/MPLUS1Code-Regular.ttf);
   font-weight: normal;
 }
 @font-face {
   font-family: mp1c;
-  src: url(/mp1c-bold.ttf);
+  src: url(/fonts/M_PLUS_1_Code/MPLUS1Code-Bold.ttf);
   font-weight: bold;
 }
 /* Share Tech*/
 @font-face {
   font-family: share-tech;
-  src: url(/sharetech-regular.ttf);
+  src: url(/fonts/Share_Tech/ShareTech-Regular.ttf);
 }
 @font-face {
   font-family: share-tech-mono;
-  src: url(/sharetechmono-regular.ttf);
+  src: url(/fonts/Share_Tech_Mono/ShareTechMono-Regular.ttf);
 }
 /* Ubuntu */
 @font-face {
   font-family: ubuntu;
-  src: url(/ubuntu-regular.ttf);
+  src: url(/fonts/Ubuntu/Ubuntu-Regular.ttf);
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: ubuntu;
-  src: url(/ubuntu-italic.ttf);
+  src: url(/fonts/Ubuntu/Ubuntu-Italic.ttf);
   font-weight: normal;
   font-style: italic;
 }
