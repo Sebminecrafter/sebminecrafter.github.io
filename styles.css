@@ -12,6 +12,7 @@
 
 body {
   width: clamp(100px, 75%, 800px);
+  background-color: #302AFF;
 }
 h3 {
   
