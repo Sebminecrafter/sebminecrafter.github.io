@@ -1,7 +1,17 @@
+/* Fonts */
+@font-face {
+  font-family: MP1C;
+  src: url(fonts/m_plus_1_code/m_plus_1_code/static/mplus1code-regular.ttf);
+  font-weight: normal;
+}
+@font-face {
+  font-family: MP1C;
+  src: url(fonts/m_plus_1_code/m_plus_1_code/static/mplus1code-bold.ttf);
+  font-weight: bold;
+}
+
 body {
   width: clamp(100px, 75%, 800px);
-  display: flex;
-  justify-content: center;
 }
 h3 {
   
