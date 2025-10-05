@@ -51,14 +51,13 @@
 
 body {
   width: clamp(400px, 75%, 800px);
-  background: #00A2E8 url("sebby.png") no-repeat right bottom;
+  background: #00A2E8 url("sebby.png") no-repeat right top;
   font-family: share-tech, sans-serif;
 }
 
 /* SET EVERYTHING TO CENTER!!! */
 .center {
-  display: flex;
-  flex-direction: column;
+  position: absolute;
   text-align: center;
   justify-content: center;
   align-items: center;
