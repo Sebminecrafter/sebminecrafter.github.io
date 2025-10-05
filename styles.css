@@ -1,4 +1,5 @@
 /* Fonts */
+
 /* M PLUS 1 CODE */
 @font-face {
   font-family: mp1c;
@@ -10,6 +11,7 @@
   src: url(/fonts/M_PLUS_1_Code/MPLUS1Code-Bold.ttf);
   font-weight: bold;
 }
+
 /* Share Tech*/
 @font-face {
   font-family: share-tech;
@@ -19,6 +21,7 @@
   font-family: share-tech-mono;
   src: url(/fonts/Share_Tech_Mono/ShareTechMono-Regular.ttf);
 }
+
 /* Ubuntu */
 @font-face {
   font-family: ubuntu;
@@ -32,7 +35,7 @@
   font-weight: normal;
   font-style: italic;
 }
-/* That's it! */
+/* End fonts */
 
 body {
   width: clamp(400px, 75%, 800px);
@@ -41,4 +44,7 @@ body {
 }
 h1 {
   font-family: ubuntu, sans-serif !important;
+}
+.center {
+  text-align: center;
 }
