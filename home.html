@@ -4,11 +4,14 @@
 </head>
 <body>
 <style>
-body {
-background: #e6f7ff;
-}
-input {
-background: #e6f7f7;
+body {background: #e6f7ff;}
+input {background: #e6f7f7;}
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 button {border-color: #333333;display: inline-block;margin: 2px;transition-duration: 0.4s;}
 #wbtn {background-color: #fefefe;color: #222222}
@@ -16,7 +19,7 @@ button {border-color: #333333;display: inline-block;margin: 2px;transition-durat
 #ghbtn {background-color: #818181;color: #e0e0e0;}
 #ghbtn:hover {background-color: #010101;color: #f9f9f9;}
 </style>
-<center>
+<div class="center">
 	<br><br><br><br><br><br><br><br><br><br>
 	<a href="https://www.google.com/"><img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"></a>
 	<br><br><br><br>
@@ -26,5 +29,5 @@ button {border-color: #333333;display: inline-block;margin: 2px;transition-durat
 	<a href="https://scratch.mit.edu/"><button id="wbtn"><img src="https://scratch.mit.edu/favicon.ico" height="12" width="12">Scratch</button></a>
 	<a href="https://github.com"><button id="ghbtn"><img src="https://github.githubassets.com/favicons/favicon-dark.png" height="12" width="12">GitHub</button></a>
 	<a href="https://sebminecrafter.github.io"><button id="wbtn"><img src="https://sebminecrafter.github.io/sebby.png" height="12" width="12">Sebminecrafter's Page</button></a>
-</center>
+</div>
 </body></html>
