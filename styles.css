@@ -49,7 +49,7 @@
 
 /* End fonts */
 
-body, html {
+html {
   width: 100%;
   height: 100%;
   background: #00A2E8 url("sebby.png") no-repeat right top;
