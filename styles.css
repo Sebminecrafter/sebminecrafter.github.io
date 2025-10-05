@@ -40,11 +40,17 @@
 body {
   width: clamp(400px, 75%, 800px);
   background: #00A2E8 url("sebby.png") no-repeat right top;
-  font-family: share-tech-mono, monospace;
+  font-family: share-tech, sans-serif;
 }
+
+code, .code-snippet, .code {
+  font-family: mp1c, monospace !important;
+}
+
 h1 {
   font-family: ubuntu, sans-serif !important;
 }
+
 .center {
   text-align: center;
 }

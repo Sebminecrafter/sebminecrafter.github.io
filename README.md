@@ -1,5 +1,2 @@
-<head>
-<meta http-equiv='refresh' content='0; URL='index.html'>
-</head>
-https://sebminecrafter.github.io
-My github pages site
+#[My github pages site](https://sebminecrafter.github.io)
+###I don't have much here yet but am working on adding stuff when I feel like it
