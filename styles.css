@@ -57,7 +57,7 @@ body {
 
 /* SET EVERYTHING TO CENTER!!! */
 .center {
-  display: flex;
+  display: grid;
   text-align: center;
   justify-content: center;
   align-items: center;
