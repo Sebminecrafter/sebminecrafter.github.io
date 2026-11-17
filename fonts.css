@@ -1,0 +1,50 @@
+/* M PLUS 1 CODE */
+@font-face {
+  font-family: "M PLUS 1 Code";
+  src:
+    local("M PLUS 1 Code"), local("M PLUS 1 Code Regular"),
+    local("MPLUS1Code-Regular"),
+    url(/fonts/M_PLUS_1_Code/MPLUS1Code-Regular.ttf);
+  font-weight: normal;
+}
+@font-face {
+  font-family: "M PLUS 1 Code";
+  src:
+    local("M PLUS 1 Code Bold"), local("MPLUS1Code-Bold"),
+    url(/fonts/M_PLUS_1_Code/MPLUS1Code-Bold.ttf);
+  font-weight: bold;
+}
+
+/* Share Tech*/
+@font-face {
+  font-family: "Share Tech";
+  src:
+    local("Share Tech"), local("ShareTech"), local("ShareTech-Regular"),
+    url(/fonts/Share_Tech/ShareTech-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Share Tech Mono";
+  src:
+    local("Share Tech Mono"), local("ShareTechMono"),
+    local("ShareTechMono-Regular"),
+    url(/fonts/Share_Tech_Mono/ShareTechMono-Regular.ttf);
+}
+
+/* Ubuntu */
+@font-face {
+  font-family: "Ubuntu";
+  src:
+    local("Ubuntu"), local("Ubuntu Regular"), local("Ubuntu-Regular"),
+    url(/fonts/Ubuntu/Ubuntu-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src:
+    local("Ubuntu Italic"), local("Ubuntu-Italic"),
+    url(/fonts/Ubuntu/Ubuntu-Italic.ttf);
+  font-weight: normal;
+  font-style: italic;
+}
