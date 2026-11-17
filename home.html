@@ -1,33 +1,72 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>New Tab</title>
-</head>
-<body>
-<style>
-body {background: #8ad8fc;}
-input {background: #87d5f9;}
-.center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-button {border-color: #333333;display: inline-block;margin: 2px;transition-duration: 0.4s;}
-#wbtn {background-color: #fefefe;color: #222222}
-#wbtn:hover {background-color: #9f9f9f;color: #444444}
-#ghbtn {background-color: #818181;color: #e0e0e0;}
-#ghbtn:hover {background-color: #010101;color: #f9f9f9;}
-</style>
-<div class="center">
-	<br><br><br><br><br><br><br><br><br><br>
-	<a href="https://www.google.com/"><img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"></a>
-	<br><br><br><br>
-	<form action="https://www.google.com/search"><input type="text" name="q" placeholder="Search Google..."><input type="submit" value="Search"></form>
-	<br><br><br><br><br><br><br><br>
-	<a href="https://drive.google.com/"><button id="wbtn"><img src="https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_24dp.png" height="12" width="12">Google Drive</button></a>
-	<a href="https://scratch.mit.edu/"><button id="wbtn"><img src="https://scratch.mit.edu/favicon.ico" height="12" width="12">Scratch</button></a>
-	<a href="https://github.com"><button id="ghbtn"><img src="https://github.githubassets.com/favicons/favicon-dark.png" height="12" width="12">GitHub</button></a>
-	<a href="https://sebminecrafter.github.io"><button id="wbtn"><img src="https://sebminecrafter.github.io/sebby.png" height="12" width="12">Sebminecrafter's Page</button></a>
-</div>
-</body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Home</title>
+    <link rel="stylesheet" href="/home.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" type="image/png" href="/Sebby.png" />
+    <script>
+      const ENGINES = {
+        google: "https://google.com/search?q=",
+        bing: "https://www.bing.com/search?q=",
+        duckduckgo: "https://duckduckgo.com/?q=",
+        yahoo: "https://search.yahoo.com/search?p=",
+        yandex: "https://yandex.com/search/?text=",
+        ecosia: "https://www.ecosia.org/search?q=",
+      };
+
+      function getEngineUrl() {
+        const { value } = document.getElementById("search-engine");
+        return Object.hasOwn(ENGINES, value) ? ENGINES[value] : ENGINES.google;
+      }
+      function search() {
+        const query = document.getElementById("search-bar").value;
+        const engine = getEngineUrl();
+        window.location = engine + encodeURIComponent(query);
+      }
+    </script>
+  </head>
+  <body id="home-container">
+    <div class="home">
+      <img src="/Sebby.png" id="logo" />
+
+      <h1>Home</h1>
+
+      <form action="javascript:search()">
+        <select name="Search Engine" id="search-engine">
+          <option value="google">Google</option>
+          <option value="bing">Bing</option>
+          <option value="duckduckgo" selected>DuckDuckGo</option>
+          <option value="yahoo">Yahoo</option>
+          <option value="yandex">Yandex</option>
+          <option value="ecosia">Ecosia</option>
+        </select>
+        <input id="search-bar" type="search" placeholder="Search..." />
+        <input type="submit" value="Search" />
+      </form>
+
+      <a href="https://drive.google.com/" class="fav-button">
+        <img
+          src="https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_24dp.png"
+        />
+        <label>Google Drive</label>
+      </a>
+
+      <a href="https://scratch.mit.edu/" class="fav-button">
+        <img src="https://scratch.mit.edu/favicon.ico" />
+        <label>Scratch</label>
+      </a>
+
+      <a href="https://github.com" class="fav-button">
+        <img src="https://github.githubassets.com/favicons/favicon.png" />
+        <label>GitHub</label>
+      </a>
+
+      <a href="https://sebminecrafter.github.io" class="fav-button">
+        <img src="/Sebby.png" />
+        <label>Sebminecrafter's Page</label>
+      </a>
+    </div>
+  </body>
+</html>
